@@ -47,7 +47,7 @@ public class RestApiConfiguration
 
 
 
-	public List<UserDto> findById(int id) {
+	public Optional<UserDto> findById(int id) {
 		// TODO Auto-generated method stub
 		return this.jpaRepository.findById(id);
 	}
@@ -58,6 +58,14 @@ public class RestApiConfiguration
 	public void deleteById(int id) {
 		// TODO Auto-generated method stub
 		 this.jpaRepository.deleteById(id);
+	}
+
+
+
+
+	public Optional<UserDto> findByEmail(String email) {
+		// TODO Auto-generated method stub
+		return this.jpaRepository.findByEmail(email);
 	}
 	
 	

@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * @author Admin
@@ -15,7 +16,7 @@ import javax.persistence.Id;
 
 
 @Entity
-
+@Table(name="USERS_DETAILS")
 public class UserDto
 {
 	
@@ -23,13 +24,14 @@ public class UserDto
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private  Integer id;
 	
+	private String email;
 	
-	private String username;
-	
-	private  Long salary;
-	
+	private String password ;
 	
 	
+	private String firstName;
+	
+	private String lastName;
 
 	/**
 	 * @return the id
@@ -46,46 +48,74 @@ public class UserDto
 	}
 
 	/**
-	 * @return the username
+	 * @return the email
 	 */
-	public String getUsername() {
-		return username;
+	public String getEmail() {
+		return email;
 	}
 
 	/**
-	 * @param username the username to set
+	 * @param email the email to set
 	 */
-	public void setUsername(String username) {
-		this.username = username;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	/**
-	 * @return the salary
+	 * @return the password
 	 */
-	public Long getSalary() {
-		return salary;
+	public String getPassword() {
+		return password;
 	}
 
 	/**
-	 * @param salary the salary to set
+	 * @param password the password to set
 	 */
-	public void setSalary(Long salary) {
-		this.salary = salary;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
+	/**
+	 * @return the firstName
+	 */
+	public String getFirstName() {
+		return firstName;
+	}
+
+	/**
+	 * @param firstName the firstName to set
+	 */
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	/**
+	 * @return the lastName
+	 */
+	public String getLastName() {
+		return lastName;
+	}
+
+	/**
+	 * @param lastName the lastName to set
+	 */
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
+	
 	
 	public UserDto() {
 		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @param username
-	 * @param salary
-	 */
-	public UserDto(String username, Long salary) {
+	public UserDto(Integer id, String email, String password, String firstName, String lastName) {
 		super();
-		this.username = username;
-		this.salary = salary;
+		this.id = id;
+		this.email = email;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
 	}
 
 	/* (non-Javadoc)
@@ -93,11 +123,9 @@ public class UserDto
 	 */
 	@Override
 	public String toString() {
-		return "UserDto [id=" + id + ", username=" + username + ", salary="
-				+ salary + "]";
+		return "UserDto [id=" + id + ", email=" + email + ", password=" + password + ", firstName=" + firstName
+				+ ", lastName=" + lastName + "]";
 	}
-	
-	
 	
 	
 	
